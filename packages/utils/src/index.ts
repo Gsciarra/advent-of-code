@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync } from "fs";
 import { HandledResult } from "./types";
 import * as process from "node:process";
 export * from "./types";
+import { resolve } from "path";
 
 async function downloadInputFile(day: number, year: number): Promise<void> {
   const link = `https://adventofcode.com/${year}/day/${day}/input`;
@@ -94,9 +95,9 @@ export async function getParsedInput<Data>(
   }
 }
 function generateParsedInputFilePath(day: number, part: 1 | 2): string {
-  return `${process.env.PARSED_INPUT_DIR}/day${day}-part${part}.json`;
+  return resolve(`${process.env.PARSED_INPUT_DIR}/day${day}-part${part}.json`);
 }
 
 function generateInputFilePath(day: number): string {
-  return `${process.env.INPUT_DIR}/day${day}.txt`;
+  return resolve(`${process.env.INPUT_DIR}/day${day}.txt`);
 }
