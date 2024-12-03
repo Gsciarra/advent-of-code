@@ -1,12 +1,17 @@
-import { DAY, EXAMPLE_INPUT, YEAR } from "./consts";
+import { DAY, EXAMPLE_INPUT1, YEAR } from "./consts";
 import { getParsedInput } from "@repo/utils/src";
-import {  parser } from "./utils";
+import { parser } from "./utils";
 import { ParsedInput } from "./types";
 
 function part1(input: ParsedInput): number {
-
-  console.log(`Day ${DAY} - Part 1:`, totalValid);
-  return totalValid;
+  let total = 0;
+  for (const { operation, values } of input) {
+    if (operation === "mul") {
+      total += values.reduce((acc, val) => acc * val, 1);
+    }
+  }
+  console.log(`Day ${DAY} - Part 1:`, total);
+  return total;
 }
 
 export default async function solvePart1() {
@@ -19,9 +24,9 @@ export default async function solvePart1() {
 }
 
 export async function test() {
-  const input = parser(EXAMPLE_INPUT);
+  const input = parser(EXAMPLE_INPUT1);
   const result = part1(input);
-  const expected = ;
+  const expected = 161;
   if (result === expected) {
     console.log(`Test day ${DAY} - part 1 passed`);
   } else {

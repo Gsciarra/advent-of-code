@@ -1,12 +1,13 @@
 import { DAY, EXAMPLE_INPUT, YEAR } from "./consts";
 import { getParsedInput } from "@repo/utils/src";
-import {  parser } from "./utils";
+import { parser } from "./utils";
 import { ParsedInput } from "./types";
 
 function part1(input: ParsedInput): number {
+  let result = 0;
 
-  console.log(`Day ${DAY} - Part 1:`, totalValid);
-  return totalValid;
+  console.log(`Day ${DAY} - Part 1:`, result);
+  return result;
 }
 
 export default async function solvePart1() {
@@ -21,7 +22,7 @@ export default async function solvePart1() {
 export async function test() {
   const input = parser(EXAMPLE_INPUT);
   const result = part1(input);
-  const expected = ;
+  const expected = null;
   if (result === expected) {
     console.log(`Test day ${DAY} - part 1 passed`);
   } else {
