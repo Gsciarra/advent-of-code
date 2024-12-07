@@ -1,4 +1,4 @@
-import { getParsedInput } from "@repo/utils/src";
+import { getParsedInput } from "@repo/utils";
 import { Pages, ParsedInput } from "./types";
 import { fixPageToFollowTheRules, isFollowingTheRules, parser } from "./utils";
 import { DAY, EXAMPLE_INPUT, YEAR } from "./consts";

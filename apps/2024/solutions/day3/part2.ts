@@ -1,4 +1,4 @@
-import { getParsedInput } from "@repo/utils/src";
+import { getParsedInput } from "@repo/utils";
 import { ParsedInput } from "./types";
 import { parser2 } from "./utils";
 import { DAY, EXAMPLE_INPUT2, YEAR } from "./consts";

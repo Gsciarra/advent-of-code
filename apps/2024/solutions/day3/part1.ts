@@ -1,5 +1,5 @@
 import { DAY, EXAMPLE_INPUT1, YEAR } from "./consts";
-import { getParsedInput } from "@repo/utils/src";
+import { getParsedInput } from "@repo/utils";
 import { parser } from "./utils";
 import { ParsedInput } from "./types";
 

@@ -1,27 +1,21 @@
 import { DAY, EXAMPLE_INPUT, YEAR } from "./consts";
 import { getParsedInput } from "@repo/utils";
-import { checkIncreaseDecrease, checkSafety, parser } from "./utils";
-import { ParsedInput } from "./types";
+import { checkEquation, parser } from "./utils";
+import { Operator, ParsedInput } from "./types";
+
+const OPERATORS: Operator[] = ["+", "*"];
 
 function part1(input: ParsedInput): number {
-  let totalValid = 0;
+  let result = 0;
 
-  for (let report of input) {
-    const status = checkIncreaseDecrease(report);
-
-    if (status === "Invalid") {
-      continue;
+  for (const equation of input) {
+    if (checkEquation(equation, OPERATORS)) {
+      result += equation.result;
     }
-    const safety = checkSafety(report);
-
-    if (safety === "Unsafe") {
-      continue;
-    }
-
-    totalValid++;
   }
-  console.log(`Day ${DAY} - Part 1:`, totalValid);
-  return totalValid;
+
+  console.log(`Day ${DAY} - Part 1:`, result);
+  return result;
 }
 
 export default async function solvePart1() {
@@ -36,7 +30,7 @@ export default async function solvePart1() {
 export async function test() {
   const input = parser(EXAMPLE_INPUT);
   const result = part1(input);
-  const expected = 2;
+  const expected = 3749;
   if (result === expected) {
     console.log(`Test day ${DAY} - part 1 passed`);
   } else {
